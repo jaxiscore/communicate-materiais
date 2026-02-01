@@ -3,111 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JailsonTech | Automações e IA</title>
+    <title>JailsonTech | Labs & Comunidade</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+            --whatsapp: #22c55e;
+        }
+
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: radial-gradient(circle at top center, #1e293b 0%, #020617 100%);
+            background-color: #020617;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
+            overflow-x: hidden;
         }
+
         .glass-card { 
             background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(12px); 
-            border: 1px solid rgba(255, 255, 255, 0.08); 
+            backdrop-filter: blur(16px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-        .btn-glow:hover {
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
-            transform: translateY(-2px);
+
+        .progress-bar {
+            height: 3px;
+            background: var(--whatsapp);
+            width: 0%;
+            transition: width 1s linear;
         }
-        .gradient-text {
-            background: linear-gradient(to right, #60a5fa, #a855f7);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .btn-main {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+        }
+        
+        .btn-main:hover {
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
+            transform: scale(1.02);
         }
     </style>
 </head>
-<body class="text-slate-200 min-h-screen flex flex-col items-center py-12 px-6">
+<body class="text-slate-200 min-h-screen flex flex-col items-center justify-center py-12 px-6">
 
-    <!-- Profile Info -->
-    <div class="flex flex-col items-center text-center mb-10">
-        <div class="relative mb-6">
-            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-75"></div>
-            <!-- Simulação da Logo do Erlenmeyer Azul -->
-            <div class="relative w-24 h-24 bg-slate-900 rounded-full flex items-center justify-center border-2 border-white/10 overflow-hidden">
-                <i class="fas fa-flask text-4xl text-blue-400"></i>
+    <!-- Top Progress bar for redirect -->
+    <div class="fixed top-0 left-0 w-full bg-white/5 h-1">
+        <div id="progress" class="progress-bar"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="flex flex-col items-center text-center mb-12 animate-float">
+        <div class="relative mb-8">
+            <div class="absolute -inset-4 bg-blue-600/20 rounded-full blur-3xl"></div>
+            <div class="relative w-28 h-28 bg-slate-900 rounded-3xl flex items-center justify-center border border-white/10 rotate-12 shadow-2xl">
+                <i class="fas fa-flask text-5xl text-blue-500 -rotate-12"></i>
             </div>
         </div>
         
-        <h1 class="text-3xl font-extrabold tracking-tight mb-2 uppercase italic">Jailson<span class="text-blue-500">Tech</span></h1>
-        <div class="flex items-center gap-2 mb-4">
-             <span class="h-px w-8 bg-blue-500/50"></span>
-             <p class="text-blue-400 font-semibold text-xs tracking-widest uppercase">Automação & IA</p>
-             <span class="h-px w-8 bg-blue-500/50"></span>
-        </div>
-        <p class="max-w-xs text-slate-400 text-sm leading-relaxed">
-            N8N avançado, WhatsApp, APIs e Docker. <br>
-            <span class="text-slate-300 font-medium italic">"Agentes que realmente executam."</span>
+        <h1 class="text-4xl font-extrabold tracking-tighter mb-3">
+            JAILSON<span class="text-blue-500">TECH</span> <span class="text-white/20 font-light">|</span> LABS
+        </h1>
+        <p class="text-blue-400 font-bold text-xs tracking-[0.3em] uppercase mb-6">Automação & IA sem showzinho</p>
+        
+        <p class="max-w-xs text-slate-400 text-sm leading-relaxed glass-card p-4 rounded-2xl border-white/5">
+            Você está sendo redirecionado para a nossa central de materiais e comunidade no WhatsApp.
         </p>
     </div>
 
-    <!-- Main Buttons Container -->
-    <div class="w-full max-w-sm space-y-4">
+    <!-- Buttons -->
+    <div class="w-full max-w-sm space-y-4 relative z-10">
         
-        <!-- Canal WhatsApp -->
-        <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" target="_blank" 
-           class="w-full p-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl flex items-center justify-between transition-all btn-glow group">
+        <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" 
+           class="w-full p-6 btn-main text-white rounded-3xl flex items-center justify-between transition-all group">
             <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-xl">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
+                <i class="fab fa-whatsapp text-3xl"></i>
                 <div class="text-left">
-                    <span class="block font-bold text-base leading-tight">Comunidade VIP</span>
-                    <span class="text-xs text-green-100 opacity-80">Receba avisos e atualizações</span>
+                    <span class="block font-extrabold text-lg">ENTRAR NO CANAL</span>
+                    <span class="text-xs text-white/80">Materiais, Templates e Updates</span>
                 </div>
             </div>
-            <i class="fas fa-external-link-alt text-xs opacity-50 group-hover:opacity-100"></i>
+            <i class="fas fa-arrow-right animate-pulse"></i>
         </a>
 
-        <!-- Materiais / Templates -->
-        <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" target="_blank" 
-           class="w-full p-5 glass-card hover:bg-white/5 rounded-2xl flex items-center justify-between transition-all border border-white/10 group">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center text-xl text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                    <i class="fas fa-box-open"></i>
-                </div>
-                <div class="text-left">
-                    <span class="block font-bold text-base leading-tight">Materiais & Templates</span>
-                    <span class="text-xs text-slate-500 italic">Downloads nas mensagens fixadas</span>
-                </div>
-            </div>
-            <i class="fas fa-download text-xs opacity-30 group-hover:opacity-100"></i>
-        </a>
-
-        <!-- YouTube Link -->
         <a href="https://youtube.com/@jailsontech" target="_blank" 
-           class="w-full p-5 glass-card hover:bg-white/5 rounded-2xl flex items-center justify-between transition-all border border-white/10 group">
-            <div class="flex items-center gap-4">
-                <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center text-xl text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
-                    <i class="fab fa-youtube"></i>
-                </div>
-                <div class="text-left">
-                    <span class="block font-bold text-base leading-tight text-slate-300">YouTube Oficial</span>
-                    <span class="text-xs text-slate-500 italic">Tutoriais direto ao ponto</span>
-                </div>
+           class="w-full p-5 glass-card hover:bg-white/5 rounded-3xl flex items-center gap-4 transition-all border-white/10 group">
+            <div class="w-10 h-10 bg-red-500/10 rounded-xl flex items-center justify-center text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
+                <i class="fab fa-youtube text-lg"></i>
             </div>
-            <i class="fas fa-play text-xs opacity-30 group-hover:opacity-100"></i>
+            <span class="font-bold text-sm text-slate-300">YouTube Oficial</span>
         </a>
 
     </div>
 
-    <!-- Simple Footer -->
-    <footer class="mt-auto pt-16 text-center">
-        <p class="text-[10px] text-slate-600 uppercase tracking-[0.2em] font-bold">
-            JailsonTech &copy; 2026
-        </p>
+    <!-- Countdown Info -->
+    <p id="countdown-text" class="mt-8 text-slate-500 text-[10px] uppercase tracking-widest font-semibold">
+        Redirecionando em <span id="seconds">10</span> segundos...
+    </p>
+
+    <!-- Footer -->
+    <footer class="mt-20 opacity-30">
+        <p class="text-[10px] font-bold tracking-[0.5em] uppercase">JailsonTech Labs</p>
     </footer>
+
+    <script>
+        let seconds = 10;
+        const countdownEl = document.getElementById('seconds');
+        const progressEl = document.getElementById('progress');
+        const targetURL = "https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u";
+
+        const timer = setInterval(() => {
+            seconds--;
+            countdownEl.innerText = seconds;
+            progressEl.style.width = ((10 - seconds) * 10) + "%";
+
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = targetURL;
+            }
+        }, 1000);
+    </script>
 
 </body>
 </html>
