@@ -21,20 +21,55 @@
                 radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.15) 0px, transparent 50%),
                 radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
             overflow-x: hidden;
+            /* Bloqueio de seleção de texto */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            touch-action: manipulation; /* Bloqueia gestos de zoom duplo */
+        }
+
+        /* Scanline Effect */
+        body::before {
+            content: " ";
+            display: block;
+            position: fixed;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 9999;
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+        }
+
+        /* Floating particles / glow dots */
+        .glow-dot {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulse-glow 3s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(2); opacity: 0.6; }
         }
 
         .glass-card { 
-            background: rgba(255, 255, 255, 0.03); 
-            backdrop-filter: blur(16px); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(255, 255, 255, 0.02); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(255, 255, 255, 0.05); 
+            box-shadow: 0 0 40px -10px rgba(59, 130, 246, 0.2);
         }
 
         .progress-bar {
             height: 3px;
-            background: var(--whatsapp);
+            background: linear-gradient(to right, #22c55e, #4ade80);
             width: 0%;
             transition: width 1s linear;
+            box-shadow: 0 0 10px var(--whatsapp);
         }
 
         .animate-float {
@@ -42,22 +77,44 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
         }
 
         .btn-main {
             background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-            box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-main::after {
+            content: "";
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
         }
         
         .btn-main:hover {
-            box-shadow: 0 0 30px rgba(34, 197, 94, 0.5);
-            transform: scale(1.02);
+            box-shadow: 0 0 35px rgba(34, 197, 94, 0.5);
+            transform: scale(1.03);
         }
     </style>
 </head>
-<body class="text-slate-200 min-h-screen flex flex-col items-center justify-center py-12 px-6">
+<body class="text-slate-200 min-h-screen flex flex-col items-center justify-center py-12 px-6 overflow-hidden">
+
+    <!-- Random Glow Dots -->
+    <div class="glow-dot" style="top: 10%; left: 20%"></div>
+    <div class="glow-dot" style="top: 40%; left: 80%"></div>
+    <div class="glow-dot" style="top: 70%; left: 15%"></div>
+    <div class="glow-dot" style="top: 85%; left: 60%"></div>
 
     <!-- Top Progress bar for redirect -->
     <div class="fixed top-0 left-0 w-full bg-white/5 h-1">
@@ -119,6 +176,14 @@
     </footer>
 
     <script>
+        // Bloqueio de clique direito e atalhos de cópia
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'i')) {
+                e.preventDefault();
+            }
+        });
+
         let seconds = 10;
         const countdownEl = document.getElementById('seconds');
         const progressEl = document.getElementById('progress');
@@ -126,8 +191,8 @@
 
         const timer = setInterval(() => {
             seconds--;
-            countdownEl.innerText = seconds;
-            progressEl.style.width = ((10 - seconds) * 10) + "%";
+            if(countdownEl) countdownEl.innerText = seconds;
+            if(progressEl) progressEl.style.width = ((10 - seconds) * 10) + "%";
 
             if (seconds <= 0) {
                 clearInterval(timer);
