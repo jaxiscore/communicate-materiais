@@ -3,79 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Communicate - Materiais e Comunidade</title>
+    <title>JailsonTech | Automações e IA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: radial-gradient(circle at top center, #1e293b 0%, #020617 100%);
+        }
+        .glass-card { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
+            transform: translateY(-2px);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #60a5fa, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-white min-h-screen flex flex-col items-center py-10 px-4">
+<body class="text-slate-200 min-h-screen flex flex-col items-center py-12 px-6">
 
-    <!-- Header / Logo -->
-    <div class="mb-8 text-center">
-        <div class="w-20 h-20 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-3xl font-bold">C</div>
-        <h1 class="text-2xl font-bold tracking-tight">Communicate</h1>
-        <p class="text-slate-400 text-sm">Transformando comunicação em resultados</p>
-    </div>
-
-    <!-- Main Call to Action (WhatsApp) -->
-    <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" target="_blank" class="w-full max-w-md mb-6 p-4 bg-green-600 hover:bg-green-500 transition-all rounded-2xl flex items-center justify-center gap-3 shadow-lg shadow-green-900/20 group">
-        <i class="fab fa-whatsapp text-2xl group-hover:scale-110 transition-transform"></i>
-        <span class="font-semibold text-lg">Acessar Canal e Materiais</span>
-    </a>
-
-    <!-- Materials Section -->
-    <div class="w-full max-w-md">
-        <h2 class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4 ml-1">Conteúdo Exclusivo</h2>
+    <!-- Profile Info -->
+    <div class="flex flex-col items-center text-center mb-10">
+        <div class="relative mb-6">
+            <div class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur opacity-75"></div>
+            <!-- Simulação da Logo do Erlenmeyer Azul -->
+            <div class="relative w-24 h-24 bg-slate-900 rounded-full flex items-center justify-center border-2 border-white/10 overflow-hidden">
+                <i class="fas fa-flask text-4xl text-blue-400"></i>
+            </div>
+        </div>
         
-        <div class="space-y-3">
-            <!-- Item 1 -->
-            <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" target="_blank" class="glass w-full p-4 rounded-2xl flex items-center gap-4 hover:bg-white/10 transition-colors group">
-                <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
-                    <i class="fas fa-download text-xl"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-medium">Baixar Materiais dos Vídeos</h3>
-                    <p class="text-xs text-slate-400 italic">Disponível nas mensagens fixadas</p>
-                </div>
-                <i class="fas fa-chevron-right text-slate-600 text-sm"></i>
-            </a>
-
-            <!-- Item 2 -->
-            <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" target="_blank" class="glass w-full p-4 rounded-2xl flex items-center gap-4 hover:bg-white/10 transition-colors group">
-                <div class="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center text-purple-400 group-hover:bg-purple-500 group-hover:text-white transition-all">
-                    <i class="fas fa-comments text-xl"></i>
-                </div>
-                <div class="flex-1">
-                    <h3 class="font-medium">Comunidade Communicate</h3>
-                    <p class="text-xs text-slate-400 italic">Atualizações em tempo real</p>
-                </div>
-                <i class="fas fa-chevron-right text-slate-600 text-sm"></i>
-            </a>
+        <h1 class="text-3xl font-extrabold tracking-tight mb-2 uppercase italic">Jailson<span class="text-blue-500">Tech</span></h1>
+        <div class="flex items-center gap-2 mb-4">
+             <span class="h-px w-8 bg-blue-500/50"></span>
+             <p class="text-blue-400 font-semibold text-xs tracking-widest uppercase">Automação & IA</p>
+             <span class="h-px w-8 bg-blue-500/50"></span>
         </div>
+        <p class="max-w-xs text-slate-400 text-sm leading-relaxed">
+            N8N avançado, WhatsApp, APIs e Docker. <br>
+            <span class="text-slate-300 font-medium italic">"Agentes que realmente executam."</span>
+        </p>
     </div>
 
-            <!-- Item 3 -->
-            <a href="#" class="glass w-full p-4 rounded-2xl flex items-center gap-4 hover:bg-white/10 transition-colors group">
-                <div class="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center text-orange-400 group-hover:bg-orange-500 group-hover:text-white transition-all">
-                    <i class="fas fa-video text-xl"></i>
+    <!-- Main Buttons Container -->
+    <div class="w-full max-w-sm space-y-4">
+        
+        <!-- Canal WhatsApp -->
+        <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" target="_blank" 
+           class="w-full p-5 bg-green-600 hover:bg-green-500 text-white rounded-2xl flex items-center justify-between transition-all btn-glow group">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center text-xl">
+                    <i class="fab fa-whatsapp"></i>
                 </div>
-                <div class="flex-1">
-                    <h3 class="font-medium">Aulas Complementares</h3>
-                    <p class="text-xs text-slate-400 italic">Playlist no YouTube</p>
+                <div class="text-left">
+                    <span class="block font-bold text-base leading-tight">Comunidade VIP</span>
+                    <span class="text-xs text-green-100 opacity-80">Receba avisos e atualizações</span>
                 </div>
-                <i class="fas fa-chevron-right text-slate-600 text-sm"></i>
-            </a>
-        </div>
+            </div>
+            <i class="fas fa-external-link-alt text-xs opacity-50 group-hover:opacity-100"></i>
+        </a>
+
+        <!-- Materiais / Templates -->
+        <a href="https://whatsapp.com/channel/0029VbC0xf69Bb5ynkguJY3u" target="_blank" 
+           class="w-full p-5 glass-card hover:bg-white/5 rounded-2xl flex items-center justify-between transition-all border border-white/10 group">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center text-xl text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-all">
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <div class="text-left">
+                    <span class="block font-bold text-base leading-tight">Materiais & Templates</span>
+                    <span class="text-xs text-slate-500 italic">Downloads nas mensagens fixadas</span>
+                </div>
+            </div>
+            <i class="fas fa-download text-xs opacity-30 group-hover:opacity-100"></i>
+        </a>
+
+        <!-- YouTube Link -->
+        <a href="https://youtube.com/@jailsontech" target="_blank" 
+           class="w-full p-5 glass-card hover:bg-white/5 rounded-2xl flex items-center justify-between transition-all border border-white/10 group">
+            <div class="flex items-center gap-4">
+                <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center text-xl text-red-500 group-hover:bg-red-600 group-hover:text-white transition-all">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="text-left">
+                    <span class="block font-bold text-base leading-tight text-slate-300">YouTube Oficial</span>
+                    <span class="text-xs text-slate-500 italic">Tutoriais direto ao ponto</span>
+                </div>
+            </div>
+            <i class="fas fa-play text-xs opacity-30 group-hover:opacity-100"></i>
+        </a>
+
     </div>
 
-    <!-- Footer -->
-    <footer class="mt-auto pt-10 text-slate-600 text-xs text-center">
-        <p>&copy; 2026 Communicate & Fluxo Labs</p>
-        <p class="mt-1">Desenvolvido por OpenClaw</p>
+    <!-- Simple Footer -->
+    <footer class="mt-auto pt-16 text-center">
+        <p class="text-[10px] text-slate-600 uppercase tracking-[0.2em] font-bold">
+            JailsonTech &copy; 2026
+        </p>
     </footer>
 
 </body>
